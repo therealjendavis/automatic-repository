@@ -73,16 +73,23 @@ public class Settings extends AppCompatActivity {
         DialogFragment newFragment = new Settings.Dialogs();
         newFragment.show(getSupportFragmentManager(), tag);
     }
+    public String stringMe(Info obj) {
+        return obj.getName() + "/r/n" +
+        obj.getTeam() + "/r/n" +
+        obj.getMatch() + "/r/n" +
+        obj.getAlliance() + "/r/n" +
+        obj.getNotes();
+    }
 
     public void cacheButton(View view) {
         getSpace().setSettingsDisplayNum(0);
-            displaySet(getSpace().getInfo().toString());
+            displaySet(stringMe(getSpace().getInfo()));
             clickedMe();
             setCache(true);
     }
     public void localButton(View view) {
         getSpace().setSettingsDisplayNum(0);
-        displaySet(getSpace().getInfo().toString());
+        displaySet(stringMe(getSpace().getInfo()));
         clickedMe();
         setCache(true);
     }
