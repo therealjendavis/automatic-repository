@@ -41,13 +41,6 @@ public class Settings extends AppCompatActivity {
         this.help = help;
     }
 
-    public String stringMe(String[] array) {
-        StringBuilder stringValue = new StringBuilder(" ");
-        for (String s : array) {
-            stringValue.append(s);
-        }
-        return stringValue.toString();
-    }
     public void clickedMe() {
         setCache(false);
         setLocal(false);
@@ -57,8 +50,8 @@ public class Settings extends AppCompatActivity {
         TextView nametext = findViewById(id);
         nametext.setText(content);
     }
-    private void displaySet(String[][] array) {
-        getSpace().setSettingsDisplay(stringMe(array[getSpace().getSettingsDisplayNum()]));
+    private void displaySet(String string) {
+        getSpace().setSettingsDisplay(string);
         updateTextView(getSpace().getSettingsDisplay(), R.id.display);
     }
     public static class Dialogs extends DialogFragment {
@@ -83,18 +76,15 @@ public class Settings extends AppCompatActivity {
 
     public void cacheButton(View view) {
         getSpace().setSettingsDisplayNum(0);
-            displaySet(getSpace().getCacheArray());
+            displaySet(getSpace().getInfo().toString());
             clickedMe();
             setCache(true);
     }
     public void localButton(View view) {
         getSpace().setSettingsDisplayNum(0);
-        if (getSpace().getLocalArray()[0] != null) {
-            displaySet(getSpace().getLocalArray());
-            clickedMe();
-            setCache(true);
-        }
-        else getSpace().setSettingsDisplay("No data available!"); updateTextView(getSpace().getSettingsDisplay(), R.id.display);
+        displaySet(getSpace().getInfo().toString());
+        clickedMe();
+        setCache(true);
     }
     public void helpButtonTwo(View view) {
         getSpace().setSettingsDisplayNum(0);
@@ -105,20 +95,12 @@ public class Settings extends AppCompatActivity {
     }
     public void nextButton(View view) {
         getSpace().setSettingsDisplayNum(getSpace().getSettingsDisplayNum() + 1);
-        if (isCache()) {
-            if (getSpace().getCacheArray()[getSpace().getSettingsDisplayNum()] != null) {
-                displaySet(getSpace().getCacheArray());}
-            else makeADialog("No more data is available!", "nomoredata");}
-        else if (isLocal()) {
-            if (getSpace().getLocalArray()[getSpace().getSettingsDisplayNum()] != null) { displaySet(getSpace().getLocalArray());}
-            else makeADialog("No more data is available!", "nomoredata");}
-        else if (isHelp()) {
-            makeADialog("No more data is available!", "nomoredata");}
+            makeADialog("You still need to code this!!", "nomoredata");
     }
     public void clearButton(View view) {
         getSpace().setSettingsDisplay("");
         updateTextView(getSpace().getSettingsDisplay(), R.id.display);}
-    public void submitButtonTwo(View view) {}
+    public void submitButtonThree(View view) {}
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

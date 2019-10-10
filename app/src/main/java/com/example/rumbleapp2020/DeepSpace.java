@@ -26,8 +26,6 @@ public class DeepSpace implements Serializable {
     private boolean extrasYellowCard = false;
     private int extrasFinalScore = 0;
 
-    private  String[][] cacheArray = {null, null, null, null, null, null};
-    private  String[][] localArray = {null, null, null, null, null, null};
     private  String settingsDisplay = " ";
     private  int settingsDisplayNum = 0;
     private  char settingsInfoColumn = 'a';
@@ -164,22 +162,6 @@ public class DeepSpace implements Serializable {
 
     public void setExtrasNotes(String extrasNotes) {
         this.info.notes = extrasNotes;
-    }
-
-    public String[][] getCacheArray() {
-        return cacheArray;
-    }
-
-    public void setCacheArray(String[][] cacheArray) {
-        this.cacheArray = cacheArray;
-    }
-
-    public String[][] getLocalArray() {
-        return localArray;
-    }
-
-    public void setLocalArray(String[][] localArray) {
-        this.localArray = localArray;
     }
 
     public String getSettingsDisplay() {
