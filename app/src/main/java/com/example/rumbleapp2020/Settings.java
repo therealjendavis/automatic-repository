@@ -75,7 +75,7 @@ public class Settings extends AppCompatActivity {
     }
     String lineBreak = System.getProperty("line.terminator");
     public String stringMe(Info obj) {
-        return obj.getName() + "/r/n" +
+        return obj.getName() + lineBreak +
         obj.getTeam() + lineBreak +
         obj.getMatch() + lineBreak +
         obj.getAlliance() + lineBreak +
