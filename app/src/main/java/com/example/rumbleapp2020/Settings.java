@@ -73,11 +73,12 @@ public class Settings extends AppCompatActivity {
         DialogFragment newFragment = new Settings.Dialogs();
         newFragment.show(getSupportFragmentManager(), tag);
     }
+    String lineBreak = System.getProperty("line.terminator");
     public String stringMe(Info obj) {
         return obj.getName() + "/r/n" +
-        obj.getTeam() + "/r/n" +
-        obj.getMatch() + "/r/n" +
-        obj.getAlliance() + "/r/n" +
+        obj.getTeam() + lineBreak +
+        obj.getMatch() + lineBreak +
+        obj.getAlliance() + lineBreak +
         obj.getNotes();
     }
 
